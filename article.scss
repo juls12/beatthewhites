@@ -1,0 +1,70 @@
+$fontColor: #000;
+$mainPurple: #a864d3;
+$fadeText: #888888;
+
+@mixin centered() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin centerContent() {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin centerContentVertical() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+html,
+body {
+    margin: 0;
+    background-color: white;
+    font-family: "Roboto Slab", serif;
+    color: $fontColor;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "content "
+        "footer ";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 5px;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: $mainPurple;
+    text-align: center;
+    padding: 25px;
+    height: 100vh;
+}
+
+main {
+    grid-area: content;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+    height: 100vh;
+}
+
+.article-list-item {
+    font-size: 2em;
+    margin-top: 0.22em;
+    margin-bottom: 0.22em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    grid-area: footer;
+    background-color: $mainPurple;
+}

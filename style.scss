@@ -1,0 +1,124 @@
+$fontColor: #000;
+$mainPurple: #a864d3;
+$fadeText: #888888;
+
+@mixin centerContent() {
+    display: flex;
+    justify-content: center;
+}
+
+@import "./_media";
+
+html,
+body {
+    height: 100%;
+    min-width: 100%;
+    display: grid;
+    scroll-behavior: smooth;
+    margin: 0;
+    font-family: "Roboto Slab", serif;
+    color: $fontColor;
+}
+
+.logosvg {
+    width: 24px;
+    height: 24px;
+    transform: rotate(900deg);
+    -webkit-transform: rotate(900deg);
+}
+
+/* sidebar */
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav content "
+        "footer footer";
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 5px;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+nav {
+    grid-area: nav;
+    left: 0;
+    bottom: 0;
+    margin-left: 0.5rem;
+    -ms-writing-mode: tb-rl; /* old syntax, IE */
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    background-color: $mainPurple;
+    img {
+        width: 15px;
+        transform: rotate(900deg);
+        -webkit-transform: rotate(900deg);
+    }
+    a {
+        text-decoration: none;
+        color: $fontColor;
+    }
+}
+
+@supports (writing-mode: vertical-rl) or (-webkit-writing-mode: vertical-rl) {
+    .sidebar {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+main {
+    grid-area: content;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: left;
+    h5 {
+        color: #9d00ff;
+    }
+    h3 {
+        color: $fontColor;
+    }
+    sub {
+        color: #888888;
+    }
+    hr.solid {
+        border-top: 1px solid #d8d8d8;
+        width: 90%;
+    }
+}
+
+.social {
+    @include centerContent();
+    img {
+        margin: 5px;
+    }
+}
+
+.next-page {
+    @include centerContent();
+    a {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $fontColor;
+    }
+    img {
+        width: 10px;
+        height: auto;
+    }
+}
+
+footer {
+    text-align: center;
+    grid-area: footer;
+    background-color: $mainPurple;
+}
